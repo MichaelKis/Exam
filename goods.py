@@ -13,22 +13,21 @@ class Goods:
     def __str__(self):
         return f'Код товара: {self.id},\t Название товара: {self.name}, \t Цена товара: {self.price}'
 
-class Category:
-    counter = 0
-    def __init__(self, id: int, name: str):
-        self.id = id
-        self.name = name
-        self.goods = []
-        Category.counter +=1
-
-    def __str__(self):
-        return f'Код категории: {self.id},\t Название категории: {self.name}'
+# удалить
+# class Category:
+#     counter = 0
+#     def __init__(self, id: int, name: str):
+#         self.id = id
+#         self.name = name
+#         self.goods = []
+#         Category.counter +=1
+#
+#     def __str__(self):
+#         return f'Код категории: {self.id},\t Название категории: {self.name}'
 
 class Select_goods:
         counter = 0
-
         def __init__(self,id:int, name: str, price: int):
-
             self.id = id
             self.name = name
             self.price = price
