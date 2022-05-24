@@ -1,4 +1,3 @@
-import generator
 
 class Goods:
     counter = 0
@@ -31,26 +30,26 @@ class Select_goods:
             self.id = id
             self.name = name
             self.price = price
+            Select_goods.counter += 1
 
         def __str__(self):
             return f'Код товара: {self.id},\t Название товара: {self.name}, \t Цена товара: {self.price}'
 
-
-class Basket:
-    counter = 0
-    def __init__(self, goods =None, count=None):
-
-        self.goods = goods
-        self.count = count
-
-        Basket.counter +=1
-
-
-    def amount(self):
-        return self.goods.price * self.count
-
-    def __str__(self):
-        return f'Название товара: {self.goods.name}, \t Цена товара: {self.goods.price}, \t Количество: {self.count}'
+# удалить
+# class Basket:
+#     counter = 0
+#     def __init__(self, goods =None, count=None):
+#
+#         self.goods = goods
+#         self.count = count
+#         Basket.counter +=1
+#
+#
+#     def amount(self):
+#         return self.goods.price * self.count
+#
+#     def __str__(self):
+#         return f'Название товара: {self.goods.name}, \t Цена товара: {self.goods.price}, \t Количество: {self.count}'
 
 
 

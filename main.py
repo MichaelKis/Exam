@@ -1,9 +1,13 @@
+import basket
 import cls
 import generator
 import goods
 import user
 from category import Category
 from goods import Goods
+from goods import Select_goods
+from basket import Basket
+
 
 
 # print('Добро пожаловать в интернет-магазин продуктов питания!')
@@ -46,6 +50,7 @@ for i in range(len(goods_list)):  # связываем товары и кате�
             vars_category[n].goods.append(vars_good[i].id)
 
 # Вывести список категорий
+print('Список категорий')
 print(80*'-')
 for i in range(Category.counter):
     print(vars_category[i])
@@ -54,22 +59,60 @@ print(80*'-')
 select_category = int(input('Выбирите категорию товара :'))
 
 
-print(f'Вы выбрали категорию : {vars_category[select_category-1]}')
-
+print(f'\nВы выбрали категорию товаров: {vars_category[select_category-1]}\n')
 
 # Создадим список товаров для i - категории
-
 
 select_goods = []
 count = 0
 
-# for i in range(Goods.counter):
-#     if vars_good[i].category == select_category:
-#         count += 1
-#         select_goods.append(f'goods{count}')
-#         print(count,goods)
-#         select_goods[count] = goods.Select_goods(1,'sdc',1)
+for i in range(Goods.counter):
+    if vars_good[i].category == select_category:
+        select_goods.append(f'select_goods{count}')
+        select_goods[count] = goods.Select_goods(count+1,vars_good[i].name,vars_good[i].price)
+        count += 1
 
-select_goods = goods.Select_goods(1,'sdc',1)
-print(select_goods)
+
+# Вывести список товаров для i - категории
+print('Список товаров')
+print(80*'-')
+for i in range(Select_goods.counter):
+    print(select_goods[i])
+print(80*'-')
+
+# Положить товары в корзину
+
+step = 0
+count_basket = 0
+stop = 1
+basket = Basket()
+
+while True:
+
+    id_basket = int(input('Укажите код товара для добавления в корзину, или 0 для завершения заказа :'))
+    step += 1
+    if id_basket != 0:
+        count_basket = int(input('Укажите количество выбранного товара :'))
+        if count_basket == 0:
+            print('Неверно указано количество товара')
+        else:
+            print(f'\nДобавляем товар: {select_goods[id_basket-1].name} в количестве {count_basket} в корзину')
+
+
+    else:
+        break
+
+
+
+
+
+    #basket_count = int(input('Укажите количество товара :'))
+
+    # if id_basket == 0:
+    #     print('Завершение заказа')
+    # else:
+    #     basket[count_basket] = basket.Basket = (count_basket + 1,select_goods[id_basket],2)
+    #
+    # #print(a[id_basket].name,a[id_basket].price)
+
 
