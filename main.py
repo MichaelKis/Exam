@@ -84,19 +84,28 @@ print(80*'-')
 
 step = 0
 count_basket = 0
-stop = 1
-basket = Basket()
+
+# ! В корзину можно поместить не более 100 товаров, здесь создаем переменные
+basket = []
+for i in range(100):
+    basket.append(f'basket{i}')
+
 
 while True:
 
-    id_basket = int(input('Укажите код товара для добавления в корзину, или 0 для завершения заказа :'))
-    step += 1
+    id_basket = int(input('\nУкажите код товара для добавления в корзину, или 0 для завершения заказа :'))
     if id_basket != 0:
-        count_basket = int(input('Укажите количество выбранного товара :'))
+        count_basket = int(input('\nУкажите количество выбранного товара :'))
         if count_basket == 0:
             print('Неверно указано количество товара')
         else:
             print(f'\nДобавляем товар: {select_goods[id_basket-1].name} в количестве {count_basket} в корзину')
+            basket[step] = Basket(select_goods[id_basket-1],count_basket)
+            for x in range (Basket.counter):
+                print(basket[x])
+
+
+            step += 1
 
 
     else:
