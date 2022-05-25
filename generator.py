@@ -1,3 +1,7 @@
+"""
+Не используется, но хотелось бы вынести генерацию имено сюда ))
+
+
 from goods import Goods
 from category import Category
 
@@ -45,3 +49,4 @@ def gen_goods_category()->list:
 
     return vars_good, vars_category
 
+"""
